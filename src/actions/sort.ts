@@ -4,10 +4,7 @@ import {
   SORT_CREATE_OPTIONS as OPTIONS,
 } from "../store/actionTypes";
 
-export function createSet(
-  option: OPTIONS,
-  payload?: number[]
-): { type: string; payload: number[] } {
+export function createSet(option: OPTIONS, payload?: number[]) {
   const type: ACTIONS = "CREATE_SET";
 
   switch (option) {
