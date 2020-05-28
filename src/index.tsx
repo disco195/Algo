@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import "./index.css";
 
 // state management
 import { Provider } from "react-redux";
@@ -13,11 +14,11 @@ import { BrowserRouter } from "react-router-dom";
 function Index() {
   return (
     <React.StrictMode>
-      <Provider store={store}>
-        <BrowserRouter>
+      <BrowserRouter>
+        <Provider store={store}>
           <App />
-        </BrowserRouter>
-      </Provider>
+        </Provider>
+      </BrowserRouter>
     </React.StrictMode>
   );
 }
