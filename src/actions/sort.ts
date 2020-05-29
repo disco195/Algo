@@ -1,4 +1,4 @@
-import { randomSet } from "../common/functions";
+import { randomSet, makeSet } from "../common/functions";
 import {
   SORT_ACTIONS as ACTIONS,
   SORT_CREATE_OPTIONS as OPTIONS,
@@ -9,13 +9,13 @@ export function createSet(option: OPTIONS, payload?: number[]) {
 
   switch (option) {
     case "RANDOM":
-      return { type, payload: randomSet() };
+      return { type, payload: makeSet(randomSet()) };
 
     case "USER_DEFINED":
-      if (payload) return { type, payload };
+      if (payload) return { type, payload: makeSet(payload) };
 
     default:
-      return { type, payload: randomSet() };
+      return { type, payload: makeSet(randomSet()) };
   }
 }
 
