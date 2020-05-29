@@ -21,9 +21,10 @@ export function makeSet(arr: number[]) {
   // map set and add height, width and key
   return arr.map((value) => {
     return {
-      height: (value / max) * 95,
-      width: (1 / (arr.length + 2)) * 100,
+      height: Math.floor((value / max) * 95),
+      width: Math.floor((1 / (arr.length + 2)) * 100),
       value,
+      active: false,
       key: v4(),
     };
   });
