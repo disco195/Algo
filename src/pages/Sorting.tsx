@@ -5,7 +5,6 @@ import { SortContainer } from "../components";
 import { createSet, sortSet } from "../actions/sort";
 
 function Sorting(props: Sorting) {
-  console.log(props.dispatch);
   return (
     <div>
       <SortContainer />
@@ -15,6 +14,7 @@ function Sorting(props: Sorting) {
           <button onClick={() => props.dispatch(createSet("RANDOM"))}>
             Random
           </button>
+          <button onClick={() => props.dispatch(sortSet())}>Sort</button>
         </div>
       </div>
     </div>

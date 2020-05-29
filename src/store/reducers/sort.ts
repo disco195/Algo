@@ -1,5 +1,5 @@
 import { SORT_ACTIONS as ACTIONS } from "../actionTypes";
-import { functions } from "../../common/";
+import { functions, bubble } from "../../common/";
 
 const initialState: SortState = {
   set: functions.makeSet(functions.randomSet()),
@@ -15,7 +15,7 @@ export const sortReducer = (
       if (action.payload) return { ...state, set: action.payload };
 
     case "SORT_SET":
-      return { ...state, sorted: true };
+      return { ...state, sorted: true, set: bubble(state.set) };
 
     default:
       return state;
