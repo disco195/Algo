@@ -9,6 +9,10 @@ interface Sort {
   dispatch: Dispatch<AnyAction>;
 }
 
+interface SortModule {
+  dispatch: Sort["dispatch"];
+}
+
 interface SetContainer {
   set: Sort["state"]["set"];
 }

@@ -1,25 +1,30 @@
-import { randomSet, makeSet } from "../common/functions";
-import {
-  SORT_ACTIONS as ACTIONS,
-  SORT_CREATE_OPTIONS as OPTIONS,
-} from "../store/actionTypes";
+//@ts-nocheck
+// Types
+import { ACTION_TYPES, CREATE_OPTIONS } from "../types/sort/common";
 
-export function createSet(option: OPTIONS, payload?: number[]) {
-  const type: ACTIONS = "CREATE_SET";
+// Functions
+import { randomSet, makeSet } from "../functions/";
 
+/**
+ *
+ * Create Set - Action Creator with payload
+ *
+ */
+export const createSet = (option: CREATE_OPTIONS, payload?: number[]) => {
+  const type: ACTION_TYPES = "CREATE_SET";
   switch (option) {
     case "RANDOM":
-      return { type, payload: makeSet(randomSet()) };
+      return { type, payload: makeSet(randomSet(payload)) };
 
     case "USER_DEFINED":
-      if (payload) return { type, payload: makeSet(payload) };
+      return { type, payload: makeSet(payload) };
 
     default:
-      return { type, payload: makeSet(randomSet()) };
+      return { type, payload: makeSet(randomSet(payload)) };
   }
-}
+};
 
 export function sortSet() {
-  const type: ACTIONS = "SORT_SET";
+  const type: ACTION_TYPES = "SORT_STEP";
   return { type };
 }

@@ -1,2 +1,0 @@
-export type SORT_ACTIONS = "CREATE_SET" | "SORT_SET";
-export type SORT_CREATE_OPTIONS = "RANDOM" | "USER_DEFINED";

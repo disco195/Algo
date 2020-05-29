@@ -1,2 +1,2 @@
 export { Homepage } from "./Homepage";
-export { default as Sorting } from "./Sorting";
+export { default as SortModule } from "./SortModule";
