@@ -1,11 +1,13 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
 
-import { Bar } from "./";
+import { connect } from "react-redux";
+import { createSet } from "../actions/sort";
 
-export function BarsContainer(props: BarsContainer) {
+function Container(props: SortContainer) {
   const classes = useStyles(props);
-  return <div className={classes.root}>{getBars(props.values)}</div>;
+  console.log(props.set);
+  return <div className={classes.root}>Sort Container</div>;
 }
 
 const useStyles = makeStyles({
@@ -18,18 +20,8 @@ const useStyles = makeStyles({
   },
 });
 
-function getBars(arr: number[]) {
-  const max = Math.max(...arr) + 5;
-  const count = arr.length + 1;
-  const props = arr.map((value) => {
-    return {
-      height: (value / max) * 100,
-      width: (1 / (count + 1)) * 100,
-      value,
-    };
-  });
+const mapStateToProps = (state: SortState): SortContainer => {
+  return { set: state.set };
+};
 
-  return props.map((props) => {
-    return <Bar {...props} />;
-  });
-}
+export default connect(mapStateToProps)(Container);

@@ -4,6 +4,6 @@ interface Bar {
   value: number;
 }
 
-interface BarsContainer {
-  values: numbers[];
+interface SortContainer {
+  set: SortState["set"];
 }

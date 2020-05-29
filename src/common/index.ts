@@ -1,1 +1,6 @@
-export * as functions from "./functions";
+import { makeSet, randomSet } from "./functions";
+
+export const functions = {
+  makeSet,
+  randomSet,
+};

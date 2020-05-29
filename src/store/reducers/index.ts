@@ -1,5 +1,3 @@
 import { combineReducers } from "redux";
 
-import { sortReducer } from "./sort";
-
-export const rootReducer = combineReducers(sortReducer);
+export { sortReducer } from "./sort";

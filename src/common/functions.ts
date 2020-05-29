@@ -1,4 +1,4 @@
-import uuid from "uuid";
+import { v4 } from "uuid";
 /**
  * Generate an array with random length
  * and random set of numbers
@@ -24,7 +24,7 @@ export function makeSet(arr: number[]) {
       height: (value / max) * 100,
       width: (1 / arr.length) * 100,
       value,
-      key: uuid.v4(),
+      key: v4(),
     };
   });
 }
