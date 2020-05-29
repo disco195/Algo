@@ -28,3 +28,17 @@ export function makeSet(arr: number[]) {
     };
   });
 }
+
+export function extractDefinedValues(values: string): number[] {
+  const arr = values
+    .replace(/[^0-9,]/g, "")
+    .split(",")
+    .map((value) => {
+      if (value && parseInt(value) < 100) return parseInt(value);
+    })
+    .filter((value) => {
+      return typeof value === "number";
+    });
+  if (arr.length) return arr as number[];
+  return randomSet();
+}
