@@ -22,8 +22,12 @@ export function extractSet(values: string) {
       // extra evaluation
       return typeof value === "number" && !isNaN(value);
     });
-  if (arr.length < 2) return arr as number[];
-  return randomSet();
+
+  if (arr.length > 2) {
+    return arr as number[];
+  } else {
+    return randomSet();
+  }
 }
 
 /**
