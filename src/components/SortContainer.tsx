@@ -2,12 +2,14 @@ import React from "react";
 import { makeStyles } from "@material-ui/styles";
 
 import { connect } from "react-redux";
-import { createSet } from "../actions/sort";
+import Bar from "./Bar";
 
 function Container(props: SortContainer) {
   const classes = useStyles(props);
-  console.log(props.set);
-  return <div className={classes.root}>Sort Container</div>;
+
+  const renderSet = props.set.map((props) => <Bar {...props} />);
+
+  return <div className={classes.root}>{renderSet}</div>;
 }
 
 const useStyles = makeStyles({
