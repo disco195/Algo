@@ -6,7 +6,7 @@ import { v4 } from "uuid";
  */
 export function randomSet() {
   // generate random length
-  const length = Math.floor(Math.random() * 35);
+  const length = Math.floor(Math.random() * 35 + 3);
 
   // generate random values
   return Array(length)
@@ -21,8 +21,8 @@ export function makeSet(arr: number[]) {
   // map set and add height, width and key
   return arr.map((value) => {
     return {
-      height: (value / max) * 100,
-      width: (1 / arr.length) * 100,
+      height: (value / max) * 95,
+      width: (1 / (arr.length + 2)) * 100,
       value,
       key: v4(),
     };
