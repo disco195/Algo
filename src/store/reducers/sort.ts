@@ -1,12 +1,15 @@
 import { SORT_ACTIONS as ACTIONS } from "../actionTypes";
 import { functions } from "../../common/";
 
-const initialState: State = {
-  set: functions.randomSet(),
+const initialState: SortState = {
+  set: functions.makeSet(functions.randomSet()),
   sorted: false,
 };
 
-export const sortReducer = (state = initialState, action: Action): State => {
+export const sortReducer = (
+  state = initialState,
+  action: Action
+): SortState => {
   switch (action.type) {
     case "CREATE_SET":
       if (action.payload) return { ...state, set: action.payload };
@@ -19,5 +22,4 @@ export const sortReducer = (state = initialState, action: Action): State => {
   }
 };
 
-type State = { set: number[]; sorted: boolean };
-type Action = { type: ACTIONS; payload?: number[] | never };
+type Action = { type: ACTIONS; payload?: SortState["set"] };
