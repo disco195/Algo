@@ -25,11 +25,12 @@ export default (props: Props) => {
 const useStyles = makeStyles({
   root: {
     height: (props: Props) => `${props.height}%`,
-    width: (props: Props) => `${props.width}%`,
+    width: "25px",
+    margin: "0 5px",
     display: "flex",
     alignItems: "flex-end",
     justifyContent: "center",
-    backgroundColor: (props: Props) => (props.active ? "green" : "red"),
+    backgroundColor: (props: Props) => (props.active ? "#788878" : "#C0C2C9"),
   },
   text: {
     margin: "5px 0",

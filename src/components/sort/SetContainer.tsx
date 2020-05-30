@@ -32,9 +32,9 @@ export default connect(mapStateToProps)(SetContainer);
 const useStyles = makeStyles({
   root: {
     width: "100%",
-    height: "500px",
+    height: "250px",
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "flex-end",
   },
 });
