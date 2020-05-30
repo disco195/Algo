@@ -19,7 +19,6 @@ interface SetContainer {
 
 interface ValueBar {
   height: number;
-  width: number;
   value: number;
   active: boolean;
 }

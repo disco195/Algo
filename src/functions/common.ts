@@ -1,7 +1,6 @@
 // Dependencies
 import { v4 } from "uuid";
 // Functions
-import { randomSet } from "./";
 import { ValueBar } from "../types/sort/common";
 
 /**
