@@ -1,4 +1,4 @@
-import { bubbleSort } from "../sorting";
+import { bubbleSort, selectionSort } from "../sorting";
 
 const Case1 = {
   input: [2],

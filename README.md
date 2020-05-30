@@ -75,3 +75,10 @@ src\
 &nbsp; | --- components \
 &nbsp; | --- modules \
 &nbsp; | --- actions
+
+- functions directory is where the logic of algorithms & data structure reside.
+
+- modules directory is where JSX components that act as Module Container.
+
+- actions is action creators directory and I like to think about it as the \
+  connecting part between the UI and the application logic.
