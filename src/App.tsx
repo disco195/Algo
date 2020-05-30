@@ -1,17 +1,19 @@
 // Dependecies
-import React from "react";
+import React, { Fragment } from "react";
 import { Switch, Route } from "react-router-dom";
-
-// Main Components
-import { Homepage, SortModule } from "./pages";
 
 export default () => {
   return (
-    <div className="App">
+    <Fragment>
       <Switch>
-        <Route exact path="/" render={() => <Homepage />} />
-        <Route exact path="/sorting" render={() => <SortModule />} />
+        {/*
+         *
+         *
+         * Routes Goes Here
+         *
+         *
+         */}
       </Switch>
-    </div>
+    </Fragment>
   );
 };

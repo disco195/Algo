@@ -1,23 +1,19 @@
+// Dependencies
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
-import * as serviceWorker from "./serviceWorker";
-import "./index.css";
-
-// state management
-import { Provider } from "react-redux";
-import { store } from "./store";
-
-// React Router
 import { BrowserRouter } from "react-router-dom";
+// Service Workers
+import * as serviceWorker from "./serviceWorker";
+// Root Component
+import App from "./App";
+// Stylesheet
+import "./index.css";
 
 function Index() {
   return (
     <React.StrictMode>
       <BrowserRouter>
-        <Provider store={store}>
-          <App />
-        </Provider>
+        <App />
       </BrowserRouter>
     </React.StrictMode>
   );
