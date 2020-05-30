@@ -31,9 +31,20 @@ const useStyles = makeStyles({
     alignItems: "flex-end",
     justifyContent: "center",
     backgroundColor: (props: Props) => (props.active ? "#788878" : "#C0C2C9"),
+    animationName: "$animateHeight",
+    animationDuration: "200ms",
   },
   text: {
     margin: "5px 0",
     color: "black",
+  },
+  "@keyframes animateHeight": {
+    "0%": {
+      height: "15%",
+    },
+    "50%": {
+      height: "35%",
+    },
+    "100%": {},
   },
 });
