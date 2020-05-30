@@ -14,20 +14,14 @@ export function extractSet(values: string) {
   const arr = values
     .replace(/[^0-9,]/g, "") // remove unwanted chars
     .split(",") // split at comma
-    .map((value) => {
-      // validate value as a number
-      if (value && parseInt(value) < 100) return parseInt(value);
-    })
     .filter((value) => {
-      // extra evaluation
-      return typeof value === "number" && !isNaN(value);
-    });
+      // filter parsable strings
+      let num = parseInt(value);
+      return typeof num === "number" && !isNaN(num);
+    })
+    .map((value) => parseInt(value));
 
-  if (arr.length > 2) {
-    return arr as number[];
-  } else {
-    return randomSet();
-  }
+  return arr;
 }
 
 /**
@@ -43,8 +37,7 @@ export function makeSet(arr: number[]): ValueBar[] {
   // map set and add height, width and key
   return arr.map((value) => {
     return {
-      height: Math.floor((value / max) * 95),
-      width: Math.floor((1 / (arr.length + 2)) * 100),
+      height: Math.floor((value / max) * 98) + 1,
       value,
       active: false,
       key: v4(),
