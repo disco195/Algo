@@ -1,68 +1,65 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Algo | Data Structures & Algorithms Visualizer
 
-## Available Scripts
+- React / Redux
+- D3.js
+- TypeScript
+- Inspired from VisuAlgo
 
-In the project directory, you can run:
+## Design Approach
 
-### `yarn start`
+Complex applications need a lot of design and descision making ahead of jumping and start \
+writing any code. I realized this as working on this project; working on the sorting module \
+got really complicated when I started binding Generator functions with Redux.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### **How I decided to approach the complexity problem ?**
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+In this README file you will find the decisions I made for the approach \
+of solving the complexitiy problem of building this application.
 
-### `yarn test`
+### Let's Define The Complex Parts of The Project!
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+When we are looking to visualize code execution, its state and \
+step through it **forward / backward** there is a possibility \
+to implement that using 3 different methods.
 
-### `yarn build`
+#### First : Play / Pause Code Execution
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Redesign each Data Structure & Algorithm we wish to visualize in a way that each code block \
+  is a function then we execute each function as a step.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+  - Bad Idea because we will increase complexity
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Utilize the Browser debugger
+  - Bad Idea because we will have to implement it for every browser we wish \
+    the application to work on.
+- Make use of Generator functions & methods
+  - Best available solution because we can pause code execution and yield result at \
+    each code block we want to represent on the UI
 
-### `yarn eject`
+For playing until finishing we can make use of the done property on the returned value. \
+So far we have an approach on how to step forward & pause code execution.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Second : Step Forward / Backward through code
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This one is rather obvious we can store history object to step backwards and a pointer \
+state that keeps track if we are at the latest state or not, so the application decides whether \
+to call next() on the generator or just show the next state stored in Redux.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Note
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+We can utilize the solution of storing state history in Redux with the Generator functions \
+solution to auto generate steps However this solution seems only viable in sorting \
+algorithms, Because we will have to work with real time input / output with other \
+Data Structures.
 
-## Learn More
+#### Third : Working with Different Modules
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This application needs to be designed in order to work with different types of Data Structures \
+& Algorithms. In order to do so we can't rely on one state structure. We can eaither
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Use a Flux like appraoach to manage multiple stores
+  - This will complicate the application more
+- Dispatch an action that changes the state to match the state desired for each module.
+  - We will need to design a top level reducer that dispatch action from **App.tsx**
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### Fourth : Visualizing State
