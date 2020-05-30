@@ -63,3 +63,15 @@ This application needs to be designed in order to work with different types of D
   - We will need to design a top level reducer that dispatch action from **App.tsx**
 
 #### Fourth : Visualizing State
+
+**WILL ADD SOLUTION SOON USING D3**
+
+## Codebase Structure
+
+src\
+&nbsp; | --- store \
+&nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; | --- functions\
+&nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; | --- reducers\
+&nbsp; | --- components \
+&nbsp; | --- modules \
+&nbsp; | --- actions
