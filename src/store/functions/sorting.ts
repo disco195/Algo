@@ -3,9 +3,7 @@
  * Bubble Sort Generator function
  *
  */
-export function* bubbleSort(
-  input: number[]
-): Generator<number[], number[], unknown> {
+export function* bubbleSort(input: number[]) {
   const arr = [...input];
   let n = arr.length - 1;
   let swap: boolean;
@@ -27,9 +25,7 @@ export function* bubbleSort(
  * Selection Sort Generator function
  *
  */
-export function* selectionSort(
-  input: number[]
-): Generator<number[], number[], unknown> {
+export function* selectionSort(input: number[]) {
   const arr = [...input];
 
   for (let i = 0; i < arr.length; i++) {
@@ -51,7 +47,23 @@ export function* selectionSort(
  * Insertion Sort Generator function
  *
  */
-function* InsertionSort() {}
+function* InsertionSort(input: number[]) {
+  const arr = [...input];
+
+  for (let i = 1; i < arr.length; i++) {
+    let currentVal = arr[i];
+    let j = i - 1;
+
+    while (j >= 0 && arr[j] > currentVal) {
+      arr[j + 1] = arr[j];
+      j = j - 1;
+    }
+
+    arr[j + 1] = currentVal;
+  }
+
+  return arr;
+}
 
 /**
  *
