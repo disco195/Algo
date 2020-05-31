@@ -47,7 +47,7 @@ export function* selectionSort(input: number[]) {
  * Insertion Sort Generator function
  *
  */
-function* InsertionSort(input: number[]) {
+export function* InsertionSort(input: number[]) {
   const arr = [...input];
 
   for (let i = 1; i < arr.length; i++) {
@@ -70,7 +70,34 @@ function* InsertionSort(input: number[]) {
  * Merge Sort Generator function
  *
  */
-function* mergeSort() {}
+export function mergeSort(input: number[]): number[] {
+  const arr = [...input];
+
+  // Edge case
+  if (arr.length <= 1) return arr;
+
+  // Splitting Arr Part
+  let mid = Math.floor(arr.length / 2);
+  let left = mergeSort(arr.slice(0, mid));
+  let right = mergeSort(arr.slice(mid));
+
+  // Merging Part
+  const merge = (arr1: number[], arr2: number[]) => {
+    let sorted: number[] = [];
+
+    // Loop while lengths are not equal 0
+    while (arr1.length && arr2.length) {
+      if (arr1[0] < arr2[0]) {
+        sorted.push(arr1.shift() as number);
+      } else {
+        sorted.push(arr2.shift() as number);
+      }
+    }
+    return sorted.concat(...arr1, ...arr2);
+  };
+  return merge(left, right);
+}
+mergeSort([5, 4, 3, 2, 1]);
 
 /**
  *
