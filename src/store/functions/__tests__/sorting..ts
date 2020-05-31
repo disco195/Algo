@@ -3,6 +3,7 @@ import {
   selectionSort,
   InsertionSort,
   mergeSort,
+  radixSort,
 } from "../sorting";
 
 const Case1 = {
@@ -24,9 +25,9 @@ const Case3 = {
 };
 
 const Case4 = {
-  input: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
-  message: "Should Return [1, 2, 3, 4, 5, 6, 7, 8, 9]",
-  output: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  input: [10, 9, 110, 8, 7, 6, 5, 4, 3, 2, 1],
+  message: "Should Return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 110]",
+  output: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 110],
 };
 
 /**
@@ -134,5 +135,32 @@ describe("Merge Sort Function", () => {
   it(Case4.message, () => {
     const merge = mergeSort(Case4.input);
     expect(merge).toEqual(Case4.output);
+  });
+});
+
+/**
+ *
+ * Merge Sort Generator Function Tests
+ *
+ */
+describe("Radix Sort Function", () => {
+  it(Case1.message, () => {
+    const radix = radixSort(Case1.input);
+    expect(radix.next().value).toEqual(Case1.output);
+  });
+
+  it(Case2.message, () => {
+    const radix = radixSort(Case2.input);
+    expect(radix.next().value).toEqual(Case2.output);
+  });
+
+  it(Case3.message, () => {
+    const radix = radixSort(Case3.input);
+    expect(radix.next().value).toEqual(Case3.output);
+  });
+
+  it(Case4.message, () => {
+    const radix = radixSort(Case4.input);
+    expect(radix.next().value).toEqual(Case4.output);
   });
 });
