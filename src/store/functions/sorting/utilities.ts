@@ -20,7 +20,7 @@ export function numAtDigit(num: number, digit: number) {
   const numFound = numString[largestDigit - digit];
 
   if (typeof numFound === "undefined") {
-    return undefined;
+    return 0;
   } else {
     return parseInt(numFound);
   }

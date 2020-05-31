@@ -140,7 +140,7 @@ describe("Merge Sort Function", () => {
 
 /**
  *
- * Merge Sort Generator Function Tests
+ * Radix Sort Generator Function Tests
  *
  */
 describe("Radix Sort Function", () => {

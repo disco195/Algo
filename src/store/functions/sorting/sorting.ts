@@ -1,3 +1,4 @@
+import { numAtDigit, findLargestDigitPlace } from "./utilities";
 /**
  *
  * Bubble Sort Generator function
@@ -135,62 +136,9 @@ export function* radixSort(input: number[]) {
     for (let j = 0; j < arr.length; j++) {
       let num = numAtDigit(arr[j], i);
 
-      if (typeof num !== "undefined") {
-        buckets[num].push(String(arr[j]));
-      }
+      buckets[num].push(String(arr[j]));
     }
     arr = buckets.flat().map((num) => parseInt(num));
   }
-  console.log("---------------------------------------------------");
-  console.log(arr);
   return arr;
-}
-
-/**
- *
- * Utilities functions \
- * - Mutate Input
- *
- */
-
-/**
- *
- * Returns The Number at The Specified Digit \
- * Used In :
- * - Radix Sort
- *
- */
-function numAtDigit(num: number, digit: number) {
-  const numString = String(num);
-
-  let largestDigit = numString.length - 1;
-
-  const numFound = numString[largestDigit - digit];
-
-  if (typeof numFound === "undefined") {
-    return undefined;
-  } else {
-    return parseInt(numFound);
-  }
-}
-
-/**
- *
- * Finds The Largest Digit Place in an Array \
- * Used In :
- * - Radix Sort
- *
- */
-function findLargestDigitPlace(arr: number[]) {
-  let largest = "0";
-
-  arr.forEach((num) => {
-    const numToString = String(num);
-
-    if (numToString.length > largest.length) {
-      largest = numToString;
-    }
-  });
-
-  return largest.length;
 }
