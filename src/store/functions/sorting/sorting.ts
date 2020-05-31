@@ -101,10 +101,23 @@ export function mergeSort(input: number[]): number[] {
 
 /**
  *
- * Quick Sort Generator function
+ * Quick Sort function
  *
  */
-function* quickSort() {}
+export function quickSort(input: number[]): number[] {
+  let arr = [...input];
+  if (arr.length <= 1) return arr;
+
+  const pivot = arr.pop() as number;
+  let left: number[] = [];
+  let right: number[] = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] <= pivot ? left.push(arr[i]) : right.push(arr[i]);
+  }
+
+  return [...quickSort([...left]), pivot, ...quickSort([...right])];
+}
 
 /**
  *

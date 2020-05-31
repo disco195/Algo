@@ -3,6 +3,7 @@ import {
   selectionSort,
   InsertionSort,
   mergeSort,
+  quickSort,
   radixSort,
 } from "../sorting";
 
@@ -135,6 +136,34 @@ describe("Merge Sort Function", () => {
   it(Case4.message, () => {
     const merge = mergeSort(Case4.input);
     expect(merge).toEqual(Case4.output);
+  });
+});
+
+/**
+ *
+ * Quick Sort Function
+ *
+ */
+describe("Quick Sort Function", () => {
+  it(Case1.message, () => {
+    const quick = quickSort(Case1.input);
+    expect(quick).toEqual(Case1.output);
+  });
+
+  it(Case2.message, () => {
+    const quick = quickSort(Case2.input);
+    expect(quick).toEqual(Case2.output);
+  });
+
+  it(Case3.message, () => {
+    const quick = quickSort(Case3.input);
+    expect(quick).toEqual(Case3.output);
+    quick;
+  });
+
+  it(Case4.message, () => {
+    const quick = quickSort(Case4.input);
+    expect(quick).toEqual(Case4.output);
   });
 });
 
