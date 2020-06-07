@@ -29,15 +29,26 @@ to implement that using 3 different methods.
 
   - Bad Idea because we will increase complexity
 
-- Utilize the Browser debugger
+- Utilize Browser debugger
+
   - Bad Idea because we will have to implement it for every browser we wish \
     the application to work on.
+
 - Make use of Generator functions & methods
-  - Best available solution because we can pause code execution and yield result at \
+
+  - Good solution because we can pause code execution and yield result at \
     each code block we want to represent on the UI
 
-For playing until finishing we can make use of the done property on the returned value. \
-So far we have an approach on how to step forward & pause code execution.
+  - Trade-off will be dealing state management complexity
+
+- Generate future states ahead of time on action ( Action creator function invocation )
+
+  - Gives us the ability to play / pause while avoiding managing and working \
+    with complex / unnecessary design overhead.
+
+  - Trade-off is using higher computational power before rendering results to user \
+    this might slow the UI response time by few milliseconds depending on the Big-O \
+    of each algorithm / data structure method.
 
 #### Second : Step Forward / Backward through code
 
@@ -47,24 +58,23 @@ to call next() on the generator or just show the next state stored in Redux.
 
 - Note
 
-We can utilize the solution of storing state history in Redux with the Generator functions \
-solution to auto generate steps However this solution seems only viable in sorting \
-algorithms, Because we will have to work with real time input / output with other \
-Data Structures.
+Solution number 4 already solved this problem because we store state ahead of time
 
 #### Third : Working with Different Modules
 
 This application needs to be designed in order to work with different types of Data Structures \
 & Algorithms. In order to do so we can't rely on one state structure. We can eaither
 
-- Use a Flux like appraoach to manage multiple stores
+- Use a Flux like approach to manage multiple stores
   - This will complicate the application more
 - Dispatch an action that changes the state to match the state desired for each module.
   - We will need to design a top level reducer that dispatch action from **App.tsx**
 
 #### Fourth : Visualizing State
 
-**WILL ADD SOLUTION SOON USING D3**
+- If we consider the 3rd and 4th solution stated above we can consider generating \
+  the necessary properties for D3 svgs from the state generator functions.
+- Each D3 shape can be controlled by a React Component.
 
 ## Codebase Structure
 
