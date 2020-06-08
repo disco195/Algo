@@ -2,17 +2,15 @@
 import React, { Fragment } from "react";
 import { Switch, Route } from "react-router-dom";
 
+import { Sort } from "./containers";
+import Navbar from "./components/Navbar";
+
 export default () => {
   return (
     <Fragment>
+      <Navbar />
       <Switch>
-        {/*
-         *
-         *
-         * Routes Goes Here
-         *
-         *
-         */}
+        <Route exact path="/" render={() => <Sort />} />
       </Switch>
     </Fragment>
   );
