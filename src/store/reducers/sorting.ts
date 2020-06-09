@@ -10,11 +10,12 @@ const initialState: SortingModuleState = {
   dataSet: Array.from({ length: Math.floor(Math.random() * 50) }).map(() => {
     return Math.floor(Math.random() * 500);
   }),
+  isSorted: false,
 };
 
 export function sortingReducer(
   state = initialState,
-  action: { type: SORTING_MODULE | SORTING_TYPE | SORTING_ACTIONS }
+  action: SET_SORTING_MODULE | SET_SORTING_ALGO
 ) {
   switch (action.type) {
     /**
@@ -55,15 +56,15 @@ export function sortingReducer(
      *
      * Module Actions
      *
-     */
-    case "CREATE_RANDOM":
-      return { ...state, currentSet: "" };
+    //  */
+    // case "CREATE_RANDOM":
+    //   return { ...state, currentSet: "" };
 
-    case "CREATE_USER_DEFINED":
-      return { ...state, currentSet: "" };
+    // case "CREATE_USER_DEFINED":
+    //   return { ...state, currentSet: "" };
 
-    case "SORT_SET":
-      return { ...state, currentSet: "" };
+    // case "SORT_SET":
+    //   return { ...state, currentSet: "" };
 
     default:
       return state;

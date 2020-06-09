@@ -7,7 +7,7 @@ const initialState: State = {
   module: null,
 };
 
-function rootReducer(state = initialState, action: { type: RESET_STATE }) {
+function rootReducer(state = initialState, action: SET_RESET_STATE) {
   switch (action.type) {
     case "RESET_STATE":
       return initialState;

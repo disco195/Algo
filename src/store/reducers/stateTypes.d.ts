@@ -6,7 +6,7 @@
  * across the whole application
  */
 interface State {
-  module: MODULE_TYPE | null;
+  module: SORTING | LISTS | TREES | null;
 }
 
 /**
@@ -16,9 +16,10 @@ interface State {
  * persist in the Sorting Module
  */
 interface SortingModuleState extends State {
-  module: SORTING_MODULE;
-  type: SORTING_TYPE;
+  module: SORTING;
+  type: SORTING_ALG;
   dataSet: number[];
+  isSorted: boolean;
 }
 
 /**
@@ -30,5 +31,6 @@ interface SortingModuleState extends State {
  *
  */
 interface ListsModuleState extends State {
-  // module must be present
+  module: LISTS;
+  type: LIST_STRUCUTRURE;
 }
