@@ -2,11 +2,9 @@
 import React, { Fragment } from "react";
 import { Switch, Route } from "react-router-dom";
 
-// Components
-import Navbar from "./components/Navbar";
+import { SortModule } from "./containers";
 
-// Modules
-import { Sorting } from "./module/Sorting";
+import { Navigation } from "./components";
 
 export default () => {
   /**
@@ -14,9 +12,9 @@ export default () => {
    */
   return (
     <Fragment>
-      <Navbar />
+      <Navigation />
       <Switch>
-        <Route exact path="/" render={() => <Sorting />} />
+        <Route exact path="/" render={() => <SortModule />} />
       </Switch>
     </Fragment>
   );
