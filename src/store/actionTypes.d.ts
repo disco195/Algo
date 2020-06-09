@@ -1,0 +1,24 @@
+/**
+ *
+ * General
+ *
+ */
+type RESET_STATE = "RESET_STATE";
+type MODULE_TYPE = SORTING_MODULE;
+
+/**
+ *
+ * Sorting Module
+ *
+ */
+type SORTING_MODULE = "SORTING_MODULE";
+type SORTING_ACTIONS = "CREATE_RANDOM" | "CREATE_USER_DEFINED" | "SORT_SET";
+type SORTING_TYPE =
+  | "BUBBLE"
+  | "SELECTION"
+  | "INSERTION"
+  | "MERGE"
+  | "QUICK"
+  | "QUICK_RANDOM"
+  | "COUNTING"
+  | "RADIX";

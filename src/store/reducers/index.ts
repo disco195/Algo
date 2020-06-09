@@ -1,17 +1,17 @@
 import { combineReducers } from "redux";
 
-// actions
-import { RESET_STATE } from "../actionTypes";
-
 // reducers
 import { sortingReducer } from "./sorting";
 
-const initialState = {};
+const initialState: State = {
+  module: null,
+};
 
 function rootReducer(state = initialState, action: { type: RESET_STATE }) {
   switch (action.type) {
     case "RESET_STATE":
-      return {};
+      return initialState;
+
     default:
       return state;
   }

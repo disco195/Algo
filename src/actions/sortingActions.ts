@@ -1,10 +1,8 @@
-import { SORTING_METHODS, SORTING_ACTIONS } from "../store/actionTypes";
-
 export function initializeSortingModule() {
   return { type: "SORTING_MODULE" };
 }
 
-export function sortingMethod(method: SORTING_METHODS) {
+export function sortingMethod(method: SORTING_TYPE) {
   return { type: method };
 }
 

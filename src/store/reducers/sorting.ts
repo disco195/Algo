@@ -1,16 +1,20 @@
-import {
-  SORTING_MODULE,
-  SORTING_METHODS,
-  SORTING_ACTIONS,
-} from "../actionTypes";
-
-const initialState = {
-  sortType: "Bubble",
+/**
+ *
+ * Initial State Used in \
+ * Sorting Module
+ *
+ */
+const initialState: SortingModuleState = {
+  module: "SORTING_MODULE",
+  type: "BUBBLE",
+  dataSet: Array.from({ length: Math.floor(Math.random() * 50) }).map(() => {
+    return Math.floor(Math.random() * 500);
+  }),
 };
 
 export function sortingReducer(
   state = initialState,
-  action: { type: SORTING_MODULE | SORTING_METHODS | SORTING_ACTIONS }
+  action: { type: SORTING_MODULE | SORTING_TYPE | SORTING_ACTIONS }
 ) {
   switch (action.type) {
     /**
