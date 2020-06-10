@@ -22,6 +22,8 @@ function NavGroup(props: NavGroupProps) {
             value={value}
             onChange={handleChange}
             aria-label="Choose Sorting Algorithm"
+            variant="scrollable"
+            scrollButtons="auto"
           >
             <Tab
               label={

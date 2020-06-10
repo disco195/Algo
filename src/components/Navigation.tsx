@@ -17,7 +17,7 @@ function Navigation(props: NavigationProps) {
   return (
     <nav className={classes.root}>
       <div className={classes.container}>
-        <span>Algo</span>
+        <span style={{ margin: "0 20px 0 0" }}>Algo</span>
         <NavGroup />
       </div>
     </nav>
