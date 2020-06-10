@@ -1,6 +1,3 @@
-interface AbbrButtonProps {
-  value: string;
-  abbr: string;
-  active: boolean;
-  // Will take action to dispatch
+interface Navigation {
+  module: State["module"];
 }

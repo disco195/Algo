@@ -1,4 +1,13 @@
 /**
+ * Used with redux connect function
+ */
+interface CombinedState {
+  rootReducer: State;
+  sortingReducer: SortingModuleState;
+  listsReducer: ListsModuleState;
+}
+
+/**
  * This is the main state of the application any \
  * state other state should be a subset
  *

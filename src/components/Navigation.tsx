@@ -1,10 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { makeStyles, Theme, Typography, Button } from "@material-ui/core";
+import { connect } from "react-redux";
+import { makeStyles, Theme, Typography } from "@material-ui/core";
 
-import { AbbrButton } from "./";
-
-export function Navigation() {
+function Navigation(props: Navigation) {
   const classes = useStyles();
 
   return (
@@ -15,15 +14,6 @@ export function Navigation() {
             Algo
           </Link>
         </Typography>
-
-        <div style={{ margin: "0 0 0 50px" }}>
-          <AbbrButton value={"BUBBLE"} abbr="BBL" active={false} />
-          <AbbrButton value={"BUBBLE"} abbr="BBL" active={false} />
-          <AbbrButton value={"BUBBLE"} abbr="BBL" active={true} />
-          <AbbrButton value={"BUBBLE"} abbr="BBL" active={false} />
-          <AbbrButton value={"BUBBLE"} abbr="BBL" active={false} />
-          <AbbrButton value={"BUBBLE"} abbr="BBL" active={false} />
-        </div>
       </div>
     </nav>
   );
@@ -43,3 +33,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
   },
 }));
+
+const mapStateToProps = (state: CombinedState) => {
+  return {
+    module: state.rootReducer.module,
+  };
+};
+
+export default connect(mapStateToProps)(Navigation);

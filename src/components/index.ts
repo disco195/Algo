@@ -1,2 +1,1 @@
-export { Navigation } from "./Navigation";
-export { AbbrButton } from "./AbbrButton";
+export { default as Navigation } from "./Navigation";
