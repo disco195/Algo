@@ -3,14 +3,23 @@ import { combineReducers } from "redux";
 // reducers
 import { sortingReducer } from "./sorting";
 
-const initialState: State = {
+export const initialState: State = {
   module: null,
 };
 
-function rootReducer(state = initialState, action: SET_RESET_STATE) {
+function rootReducer(state = initialState, action: SET_MODULE): State {
   switch (action.type) {
-    case "RESET_STATE":
-      return initialState;
+    case null:
+      return { ...initialState, module: null };
+
+    case "SORTING_MODULE":
+      return { ...initialState, module: "SORTING_MODULE" };
+
+    case "LISTS_MODULE":
+      return { ...initialState, module: "LISTS_MODULE" };
+
+    case "TREES_MODULE":
+      return { ...initialState, module: "TREES_MODULE" };
 
     default:
       return state;

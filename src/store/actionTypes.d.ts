@@ -15,6 +15,7 @@
 //  MODULE TYPES
 //
 //
+type NO_MODULE = "NO_MODULE";
 type SORTING = "SORTING_MODULE";
 type LISTS = "LISTS_MODULE";
 type TREES = "TREES_MODULE";
@@ -22,17 +23,14 @@ type TREES = "TREES_MODULE";
 //
 //  SET MODULE ACTIONS
 //
-type SET_SORTING_MODULE = { type: SORTING };
-type SET_LISTS_MODULE = { type: LISTS };
-type SET_TREES_MODULE = { type: TREES };
+type SET_MODULE = { type: SORTING | LISTS | TREES | null };
 
 //
 //
 //  ACTIONS FOR ROOT REDUCER
 //
 //
-type RESET_STATE = "RESET_STATE";
-type SET_RESET_STATE = { type: RESET_STATE };
+type RESET_MODULE = "RESET_MODULE";
 
 //
 //

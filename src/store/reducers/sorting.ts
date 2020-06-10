@@ -5,7 +5,6 @@
  *
  */
 const initialState: SortingModuleState = {
-  module: "SORTING_MODULE",
   type: "BUBBLE",
   dataSet: Array.from({ length: Math.floor(Math.random() * 50) }).map(() => {
     return Math.floor(Math.random() * 500);
@@ -13,19 +12,8 @@ const initialState: SortingModuleState = {
   isSorted: false,
 };
 
-export function sortingReducer(
-  state = initialState,
-  action: SET_SORTING_MODULE | SET_SORTING_ALGO
-) {
+export function sortingReducer(state = initialState, action: SET_SORTING_ALGO) {
   switch (action.type) {
-    /**
-     *
-     * Set Initial State Module
-     *
-     */
-    case "SORTING_MODULE":
-      return initialState;
-
     /**
      *
      * Sorting Methods
@@ -51,20 +39,6 @@ export function sortingReducer(
 
     case "RADIX":
       return { ...state, sortType: "RADIX" };
-
-    /**
-     *
-     * Module Actions
-     *
-    //  */
-    // case "CREATE_RANDOM":
-    //   return { ...state, currentSet: "" };
-
-    // case "CREATE_USER_DEFINED":
-    //   return { ...state, currentSet: "" };
-
-    // case "SORT_SET":
-    //   return { ...state, currentSet: "" };
 
     default:
       return state;

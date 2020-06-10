@@ -2,7 +2,7 @@
 import React, { Fragment } from "react";
 import { Switch, Route } from "react-router-dom";
 
-import { SortModule } from "./containers";
+import { Homepage, SortingModule } from "./containers";
 
 import { Navigation } from "./components";
 
@@ -14,7 +14,8 @@ export default () => {
     <Fragment>
       <Navigation />
       <Switch>
-        <Route exact path="/" render={() => <SortModule />} />
+        <Route exact path="/" render={() => <Homepage />} />
+        <Route exact path="/sorting" render={() => <SortingModule />} />
       </Switch>
     </Fragment>
   );

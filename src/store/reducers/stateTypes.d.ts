@@ -1,6 +1,6 @@
 /**
  * This is the main state of the application any \
- * state should generally extends this state
+ * state other state should be a subset
  *
  * add only the properties you want to persist \
  * across the whole application
@@ -15,8 +15,7 @@ interface State {
  * Add only properties you want to \
  * persist in the Sorting Module
  */
-interface SortingModuleState extends State {
-  module: SORTING;
+interface SortingModuleState {
   type: SORTING_ALG;
   dataSet: number[];
   isSorted: boolean;
@@ -31,6 +30,5 @@ interface SortingModuleState extends State {
  *
  */
 interface ListsModuleState extends State {
-  module: LISTS;
   type: LIST_STRUCUTRURE;
 }
