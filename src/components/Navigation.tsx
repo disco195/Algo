@@ -3,7 +3,11 @@ import { Dispatch } from "redux";
 import { connect } from "react-redux";
 import { makeStyles, Theme } from "@material-ui/core";
 
-interface NavigationProps {}
+import { NavGroup } from "./";
+
+interface NavigationProps {
+  currentModule: MODULES;
+}
 
 function Navigation(props: NavigationProps) {
   useEffect(() => {});
@@ -14,6 +18,7 @@ function Navigation(props: NavigationProps) {
     <nav className={classes.root}>
       <div className={classes.container}>
         <span>Algo</span>
+        <NavGroup />
       </div>
     </nav>
   );
@@ -41,7 +46,9 @@ const useStyles = makeStyles((theme: Theme) => ({
 //
 //  Redux Connect
 //
-const mapStateToProps = (state: CombinedState) => ({});
+const mapStateToProps = (state: GeneralState) => ({
+  currentModule: state.currentModule,
+});
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({});
 
