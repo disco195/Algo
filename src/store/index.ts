@@ -1,8 +1,9 @@
-import { createStore } from "redux";
+import { createStore, combineReducers } from "redux";
 
-const initialState = {};
-function reducer(state = initialState, action: any) {
-  return state;
-}
+import { reducers } from "./reducers";
 
-export const store = createStore(reducer);
+export const store = createStore(
+  reducers,
+  //@ts-ignore
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);

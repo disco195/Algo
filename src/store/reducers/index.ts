@@ -1,6 +1,12 @@
+import { combineReducers } from "redux";
+
 const initialState: GeneralState = {
   currentModule: null,
   DS_Type: null,
 };
 
-export function rootReducer(state = initialState, action: any) {}
+function generalReducer(state = initialState, action: any) {
+  return state;
+}
+
+export const reducers = generalReducer;
