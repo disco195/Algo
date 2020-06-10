@@ -16,7 +16,7 @@ function Abbr(props: AbbrProps) {
   const { DS_Type, label, abbr, current, index } = props;
 
   useEffect(() => {
-    if (current === index) {
+    if (current === index && DS_Type !== label) {
       props.onSelect(label);
     }
   });
