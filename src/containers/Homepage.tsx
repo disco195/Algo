@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Dispatch } from "redux";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { makeStyles, Theme, Button } from "@material-ui/core";
+import { setModule } from "../actions/index";
 
-interface HomepageProps {}
+interface HomepageProps {
+  setModule: () => void;
+}
 
 function Homepage(props: HomepageProps) {
+  useEffect(() => {
+    props.setModule();
+  });
+
   const classes = useStyles(props);
 
   return (
@@ -35,7 +42,10 @@ const useStyles = makeStyles((theme: Theme) => ({
 //  Redux Connect
 //
 const mapStateToProps = (state: CombinedState) => ({});
-const mapDispatchToProps = (dispatch: Dispatch) => ({});
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  setModule: () => dispatch(setModule(null)),
+});
 
 //
 //  Export with props
