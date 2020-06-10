@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
-import { Dispatch } from "redux";
+import { Dispatch, $CombinedState } from "redux";
 import { Tabs, Tab } from "@material-ui/core";
 import { Abbr } from "./";
 
@@ -30,12 +30,42 @@ function NavGroup(props: NavGroupProps) {
             />
             <Tab
               label={
-                <Abbr label="COUNTING" abbr="CNT" index={1} current={value} />
+                <Abbr label="SELECTION" abbr="SEL" index={1} current={value} />
               }
             />
             <Tab
               label={
-                <Abbr label="RADIX" abbr="RDX" index={2} current={value} />
+                <Abbr label="INSERTION" abbr="INS" index={2} current={value} />
+              }
+            />
+            <Tab
+              label={
+                <Abbr label="MERGE" abbr="MRG" index={3} current={value} />
+              }
+            />
+            <Tab
+              label={
+                <Abbr label="QUICK" abbr="QUI" index={4} current={value} />
+              }
+            />
+            <Tab
+              label={
+                <Abbr
+                  label="QUICK RANDOM"
+                  abbr="QUR"
+                  index={5}
+                  current={value}
+                />
+              }
+            />
+            <Tab
+              label={
+                <Abbr label="COUNTING" abbr="COU" index={6} current={value} />
+              }
+            />
+            <Tab
+              label={
+                <Abbr label="RADIX" abbr="RDX" index={7} current={value} />
               }
             />
           </Tabs>
@@ -65,6 +95,16 @@ function NavGroup(props: NavGroupProps) {
                 <Abbr label="STACK" abbr="STK" index={2} current={value} />
               }
             />
+            <Tab
+              label={
+                <Abbr label="QUEUE" abbr="QUE" index={3} current={value} />
+              }
+            />
+            <Tab
+              label={
+                <Abbr label="DEQUE" abbr="DQU" index={4} current={value} />
+              }
+            />
           </Tabs>
         </Fragment>
       );
@@ -73,8 +113,8 @@ function NavGroup(props: NavGroupProps) {
   }
 }
 
-const mapStateToProps = (state: GeneralState) => ({
-  currentModule: state.currentModule,
+const mapStateToProps = (state: CombinedState) => ({
+  currentModule: state.generalReducer.currentModule,
 });
 const mapDispatchToProps = (dispatch: Dispatch) => ({});
 

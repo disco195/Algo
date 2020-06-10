@@ -1,7 +1,15 @@
 type MODULES = null | "SORTING" | "LISTS";
 type MODULES_ACTION = { type: MODULES };
 
-type SORT_TYPE = "BUBBLE" | "SELECTION" | "RADIX" | "COUNTING";
+type SORT_TYPE =
+  | "BUBBLE"
+  | "SELECTION"
+  | "INSERTION"
+  | "MERGE"
+  | "QUICK"
+  | "QUICK RANDOM"
+  | "RADIX"
+  | "COUNTING";
 type SORT_TYPE_ACTION = { type: SORT_TYPE };
 
 type LIST_TYPE = "SINGLY" | "DOUBLY" | "STACK" | "QUEUE" | "DEQUE";

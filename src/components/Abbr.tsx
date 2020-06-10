@@ -9,7 +9,7 @@ interface AbbrProps {
   abbr: string;
   current: number;
   index: number;
-  //   onSelect: (v: any) => void;
+  onSelect: (v: any) => void;
 }
 
 function Abbr(props: AbbrProps) {
@@ -17,19 +17,25 @@ function Abbr(props: AbbrProps) {
 
   useEffect(() => {
     if (current === index) {
-      //   props.onSelect(DS_Type);
-      console.log(label);
+      props.onSelect(label);
     }
   });
 
   return <span>{DS_Type === label ? label : abbr}</span>;
 }
 
-const mapStateToProps = (state: GeneralState) => ({
-  DS_Type: state.DS_Type,
-});
+const mapStateToProps = (state: CombinedState) => {
+  const { generalReducer, sortReducer, listsReducer } = state;
+
+  return {
+    DS_Type:
+      generalReducer.currentModule === "SORTING"
+        ? sortReducer.sortType
+        : listsReducer.listType,
+  };
+};
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  //   onSelect: (type: DS_TYPE) => dispatch(setDSType(type)),
+  onSelect: (type: DS_TYPE) => dispatch(setDSType(type)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Abbr);

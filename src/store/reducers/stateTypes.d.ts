@@ -1,10 +1,11 @@
 interface CombinedState {
   generalReducer: GeneralState;
+  sortReducer: SortingState;
+  listsReducer: ListsState;
 }
 
 interface GeneralState {
   currentModule: MODULES;
-  DS_Type: DS_TYPE;
 }
 
 interface SortingState {

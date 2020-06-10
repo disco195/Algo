@@ -4,7 +4,6 @@ import { listsReducer } from "./lists";
 
 const initialState: GeneralState = {
   currentModule: null,
-  DS_Type: null,
 };
 
 function generalReducer(

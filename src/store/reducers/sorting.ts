@@ -8,16 +8,28 @@ export function sortReducer(
 ): SortingState {
   switch (action.type) {
     case "BUBBLE":
-      return { ...initialState, sortType: "BUBBLE" };
+      return { ...state, sortType: "BUBBLE" };
+
+    case "SELECTION":
+      return { ...state, sortType: "SELECTION" };
+
+    case "INSERTION":
+      return { ...state, sortType: "INSERTION" };
+
+    case "MERGE":
+      return { ...state, sortType: "MERGE" };
+
+    case "QUICK":
+      return { ...state, sortType: "QUICK" };
+
+    case "QUICK RANDOM":
+      return { ...state, sortType: "QUICK RANDOM" };
 
     case "COUNTING":
-      return { ...initialState, sortType: "COUNTING" };
+      return { ...state, sortType: "COUNTING" };
 
     case "RADIX":
-      return { ...initialState, sortType: "RADIX" };
-
-    case "COUNTING":
-      return { ...initialState, sortType: "COUNTING" };
+      return { ...state, sortType: "RADIX" };
 
     default:
       return state;
