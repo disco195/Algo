@@ -1,4 +1,6 @@
 import { combineReducers } from "redux";
+import { sortReducer } from "./sorting";
+import { listsReducer } from "./lists";
 
 const initialState: GeneralState = {
   currentModule: null,
@@ -24,4 +26,8 @@ function generalReducer(
   }
 }
 
-export const reducers = generalReducer;
+export const reducers = combineReducers({
+  generalReducer,
+  sortReducer,
+  listsReducer,
+});
