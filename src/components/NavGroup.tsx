@@ -4,6 +4,25 @@ import { Dispatch, $CombinedState } from "redux";
 import { Tabs, Tab } from "@material-ui/core";
 import { Abbr } from "./";
 
+const sortLabels: { label: SORT_TYPE; abbr: string }[] = [
+  { label: "BUBBLE", abbr: "BBL" },
+  { label: "SELECTION", abbr: "SEL" },
+  { label: "INSERTION", abbr: "INS" },
+  { label: "MERGE", abbr: "MRG" },
+  { label: "QUICK", abbr: "QUI" },
+  { label: "QUICK RANDOM", abbr: "QUR" },
+  { label: "COUNTING", abbr: "COU" },
+  { label: "RADIX", abbr: "RDX" },
+];
+
+const listsLabels: { label: LIST_TYPE; abbr: string }[] = [
+  { label: "SINGLY", abbr: "SLL" },
+  { label: "DOUBLY", abbr: "DLL" },
+  { label: "STACK", abbr: "STK" },
+  { label: "QUEUE", abbr: "QUE" },
+  { label: "DEQUE", abbr: "DQU" },
+];
+
 interface NavGroupProps {
   currentModule: MODULES;
 }
@@ -25,51 +44,13 @@ function NavGroup(props: NavGroupProps) {
             variant="scrollable"
             scrollButtons="auto"
           >
-            <Tab
-              label={
-                <Abbr label="BUBBLE" abbr="BBL" index={0} current={value} />
-              }
-            />
-            <Tab
-              label={
-                <Abbr label="SELECTION" abbr="SEL" index={1} current={value} />
-              }
-            />
-            <Tab
-              label={
-                <Abbr label="INSERTION" abbr="INS" index={2} current={value} />
-              }
-            />
-            <Tab
-              label={
-                <Abbr label="MERGE" abbr="MRG" index={3} current={value} />
-              }
-            />
-            <Tab
-              label={
-                <Abbr label="QUICK" abbr="QUI" index={4} current={value} />
-              }
-            />
-            <Tab
-              label={
-                <Abbr
-                  label="QUICK RANDOM"
-                  abbr="QUR"
-                  index={5}
-                  current={value}
-                />
-              }
-            />
-            <Tab
-              label={
-                <Abbr label="COUNTING" abbr="COU" index={6} current={value} />
-              }
-            />
-            <Tab
-              label={
-                <Abbr label="RADIX" abbr="RDX" index={7} current={value} />
-              }
-            />
+            {sortLabels.map(({ label, abbr }, i) => (
+              <Tab
+                label={
+                  <Abbr label={label} abbr={abbr} index={i} current={value} />
+                }
+              />
+            ))}
           </Tabs>
         </Fragment>
       );
@@ -81,32 +62,16 @@ function NavGroup(props: NavGroupProps) {
             value={value}
             onChange={handleChange}
             aria-label="Choose Lists Data Structure"
+            variant="scrollable"
+            scrollButtons="auto"
           >
-            <Tab
-              label={
-                <Abbr label="SINGLY" abbr="SLL" index={0} current={value} />
-              }
-            />
-            <Tab
-              label={
-                <Abbr label="DOUBLY" abbr="DLL" index={1} current={value} />
-              }
-            />
-            <Tab
-              label={
-                <Abbr label="STACK" abbr="STK" index={2} current={value} />
-              }
-            />
-            <Tab
-              label={
-                <Abbr label="QUEUE" abbr="QUE" index={3} current={value} />
-              }
-            />
-            <Tab
-              label={
-                <Abbr label="DEQUE" abbr="DQU" index={4} current={value} />
-              }
-            />
+            {listsLabels.map(({ label, abbr }, i) => (
+              <Tab
+                label={
+                  <Abbr label={label} abbr={abbr} index={i} current={value} />
+                }
+              />
+            ))}
           </Tabs>
         </Fragment>
       );
