@@ -10,6 +10,7 @@ interface GeneralState {
 
 interface SortingState {
   sortType: SORT_TYPE;
+  currentSet: number[] | null;
 }
 
 interface ListsState {

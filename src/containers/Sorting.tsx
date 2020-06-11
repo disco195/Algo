@@ -2,18 +2,25 @@ import React, { useEffect } from "react";
 import { Dispatch } from "redux";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { makeStyles, Theme, Tabs, Tab } from "@material-ui/core";
-import { setModule } from "../actions";
+import { makeStyles, Theme, Tabs, Tab, Button } from "@material-ui/core";
+import { setModule, createSet } from "../actions";
 import { TabPanel } from "../components";
 
 interface SortingProps {
   setModule: () => void;
+  createSet: (type: SORT_CREATE_RANDOM | null) => void;
 }
 
 function Sorting(props: SortingProps) {
   useEffect(() => {
+    props.createSet("SORT_CREATE_RANDOM");
     props.setModule();
+
+    return () => {
+      props.createSet(null);
+    };
   });
+
   const classes = useStyles(props);
 
   const [value, setValue] = React.useState(0);
@@ -39,9 +46,13 @@ function Sorting(props: SortingProps) {
             <Tab label="SORT" />
           </Tabs>
           <TabPanel value={value} index={0}>
-            <div>Hello</div>
-            <div>Hello</div>
-            <div>Hello</div>
+            <Button
+              color="primary"
+              variant="outlined"
+              onClick={() => props.createSet("SORT_CREATE_RANDOM")}
+            >
+              Create Random
+            </Button>
           </TabPanel>
           <TabPanel value={value} index={1}>
             SORT
@@ -97,6 +108,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 const mapStateToProps = (state: CombinedState) => ({});
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   setModule: () => dispatch(setModule("SORTING")),
+  createSet: (type: SORT_CREATE_RANDOM | null) => dispatch(createSet(type)),
 });
 
 //
