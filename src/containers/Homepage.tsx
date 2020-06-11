@@ -2,7 +2,13 @@ import React, { useEffect } from "react";
 import { Dispatch } from "redux";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { makeStyles, Theme, Button } from "@material-ui/core";
+import {
+  makeStyles,
+  Theme,
+  ButtonBase,
+  Paper,
+  Typography,
+} from "@material-ui/core";
 import { setModule } from "../actions/index";
 
 interface HomepageProps {
@@ -18,12 +24,26 @@ function Homepage(props: HomepageProps) {
 
   return (
     <main className={classes.root}>
-      <Button color="primary" to="/sorting" component={Link}>
-        Sorting
-      </Button>
-      <Button color="primary" to="/lists" component={Link}>
-        Lists
-      </Button>
+      <div className={classes.container}>
+        <Paper elevation={3}>
+          <ButtonBase
+            to="/sorting"
+            component={Link}
+            style={{ width: "100%", height: "100%" }}
+          >
+            <Typography variant="h3">Sorting</Typography>
+          </ButtonBase>
+        </Paper>
+        <Paper elevation={3}>
+          <ButtonBase
+            to="/lists"
+            component={Link}
+            style={{ width: "100%", height: "100%" }}
+          >
+            <Typography variant="h3">Lists</Typography>
+          </ButtonBase>
+        </Paper>
+      </div>
     </main>
   );
 }
@@ -35,6 +55,19 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {
     height: "92vh",
     width: "100%",
+  },
+  container: {
+    width: "85%",
+    margin: "auto",
+    padding: "50px 15px",
+    display: "flex",
+    justifyContent: "center",
+    flexWrap: "wrap",
+    "& > *": {
+      margin: theme.spacing(1),
+      width: theme.spacing(24),
+      height: theme.spacing(24),
+    },
   },
 }));
 
