@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { Dispatch } from "redux";
 import { connect } from "react-redux";
-import { makeStyles, Theme } from "@material-ui/core";
+import { Link } from "react-router-dom";
+import { makeStyles, Theme, Button } from "@material-ui/core";
 
 import { NavGroup } from "./";
 
@@ -17,7 +18,13 @@ function Navigation(props: NavigationProps) {
   return (
     <nav className={classes.root}>
       <div className={classes.container}>
-        <span style={{ margin: "0 20px 0 0" }}>Algo</span>
+        <Button
+          component={Link}
+          to="/"
+          style={{ margin: "0 20px 0 0", color: "white" }}
+        >
+          Algo
+        </Button>
         <NavGroup />
       </div>
     </nav>

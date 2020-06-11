@@ -46,6 +46,7 @@ function NavGroup(props: NavGroupProps) {
           >
             {sortLabels.map(({ label, abbr }, i) => (
               <Tab
+                key={abbr}
                 label={
                   <Abbr label={label} abbr={abbr} index={i} current={value} />
                 }
@@ -67,6 +68,7 @@ function NavGroup(props: NavGroupProps) {
           >
             {listsLabels.map(({ label, abbr }, i) => (
               <Tab
+                key={abbr}
                 label={
                   <Abbr label={label} abbr={abbr} index={i} current={value} />
                 }
