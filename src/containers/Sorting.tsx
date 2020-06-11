@@ -60,9 +60,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {
     height: "92vh",
     width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
   topContainer: {
-    height: "65%",
+    height: "64%",
     width: "80%",
     margin: "auto",
     display: "flex",
